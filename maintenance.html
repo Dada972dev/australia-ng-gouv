@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+      <link rel="stylesheet" href="css/styles.css">
+  <title>Site en maintenance</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background-image: url('images/main.jpg'); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+
+    /* Compte à rebours */
+    .countdown-container {
+      margin-top: 40px;
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .countdown-item {
+      text-align: center;
+    }
+
+    .countdown-time {
+      font-size: 3em;
+      color: white;
+    }
+
+    .countdown-label {
+      font-size: 1em;
+      color: orange;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay">
+    <h1>🛠 Maintenance en cours</h1>
+    <p>Ce serveur est en maintenance.</p>
+    <p>Nous serons de retour très bientôt.</p>
+
+    <div class="footer">
+      <p>Ce site appartient à <strong>dada972</strong> — Tous droits réservés.</p>
+    </div>
+  </div>
+<p>        </p>
+<p>        </p>
+<p>        </p>
+<p>        </p>
+ <div class="overlay"><!-- Zone de compte à rebours -->
+  <div class="countdown-container" id="countdown">
+    <div class="countdown-item">
+      <div class="countdown-time" id="days">--</div>
+      <div class="countdown-label">jours</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-time" id="hours">--</div>
+      <div class="countdown-label">heures</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-time" id="minutes">--</div>
+      <div class="countdown-label">minutes</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-time" id="seconds">--</div>
+      <div class="countdown-label">secondes</div>
+    </div>
+  </div>
+  <a href="index.html" class="discord-button">Retour à l'acceuil</a>
+<button></button>
+
+  </div>
+</div>
+  <script>
+    // Définir la date de fin de maintenance ici
+    const targetDate = new Date("2025-07-16T16:15:00").getTime(); // <-- à modifier
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        document.getElementById("countdown").innerHTML = "<div style='color: white; font-size: 2em;'>✅ On arrive bientôt !</div>";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = String(days).padStart(2, '0');
+      document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+
+      setTimeout(updateCountdown, 1000);
+    }
+
+    updateCountdown();
+  </script>
+</body>
+</html>

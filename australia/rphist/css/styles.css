@@ -1,0 +1,682 @@
+/* Styles généraux */
+body {
+    background-image: url('https://cdn.discordapp.com/attachments/1279108827144261733/1394332464817901578/Design_sans_titre.png?ex=68766ccd&is=68751b4d&hm=62cbd342a5ba29e57eec890f1a5f7ecb7a7557a61a8cb2662978c19ccaf37780&'); /* Default background */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Add transition for background and text color */
+}
+
+body.tiktok-background {
+    background-image: url('../boutique/fond/tiktok.gif'); /* TikTok background */
+}
+
+body.discord-background {
+    background-image: url('../boutique/fond/discordb.png'); /* Discord background */
+}
+
+body.creavideo-background {
+    background-image: url('../boutique/fond/creavideo.png'); /* Création Vidéo background */
+}
+
+body.creaphoto-background {
+    background-image: url('../boutique/fond/creaphoto.png'); /* Création Image background */
+}
+
+body.youtube-background {
+    background-image: url('../boutique/fond/edora.gif'); /* YouTube background */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    animation: slideDown 0.5s ease-out; /* Add animation */
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#logo {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+     margin-top: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+h1, h2 {
+    color: #b50202;
+}
+
+#team-list, #article-list, #boutique-list, #video-list, #offer-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the top */
+}
+
+.team-member, .article-item, .boutique-item, .video-item, .offer-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px;
+    transition: transform 0.3s;
+    cursor: pointer;
+    text-align: center;
+    width: 200px; /* Ensure consistent width */
+}
+
+.team-member:hover, .article-item:hover, .boutique-item:hover, .video-item:hover, .offer-item:hover {
+    transform: scale(1.05);
+}
+
+.team-member img, .article-item img, .boutique-item img, .video-item img, .offer-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+.team-member p, .article-item h2, .boutique-item h3, .video-item h3, .offer-item h3 {
+    margin-top: 10px;
+    color: #333;
+}
+
+.article-item p, .boutique-item p, .video-item p, .offer-item p {
+    color: #666;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    display: flex;
+}
+
+.modal-left {
+    flex: 1;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 15px 0 0 15px;
+}
+
+body.tiktok-background .modal-left {
+    background-image: url('../boutique/fond/tiktok.gif');
+}
+
+body.discord-background .modal-left {
+    background-image: url('../boutique/fond/discordb.png');
+}
+
+body.creavideo-background .modal-left {
+    background-image: url('../boutique/fond/creavideo.png');
+}
+
+body.creaphoto-background .modal-left {
+    background-image: url('../boutique/fond/creaphoto.png');
+}
+
+body.youtube-background .modal-left {
+    background-image: url('../boutique/fond/edora.gif');
+}
+
+.modal-left img {
+    width: 150px; /* Set a fixed width for the modal image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+.modal-right {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 0 15px 15px 0;
+}
+
+.modal-right h2 {
+    margin-bottom: 10px;
+}
+
+.discord-button {
+    background-color: #cc1b1b; /* Violet color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.discord-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.nationsglory-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    font-size: 1.2em; /* Increase font size */
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Inline-block display */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.nationsglory-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+.discord-button {
+    background-color: #7289da; /* Discord color */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    font-size: 1.2em; /* Increase font size */
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Inline-block display */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.discord-button:hover {
+    background-color: #5a6fb2; /* Darker Discord color on hover */
+}
+
+.video-list {
+    display: flex; /* Display videos in a row */
+    flex-wrap: wrap; /* Wrap to the next line if necessary */
+    gap: 20px; /* Space between videos */
+}
+
+.video-item {
+    flex: 1 1 calc(33.333% - 20px); /* Three videos per row */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.video-list {
+    display: flex; /* Display videos in a row */
+    overflow-x: auto; /* Allow horizontal scrolling if necessary */
+    gap: 20px; /* Space between videos */
+}
+
+.video-item {
+    flex: 0 0 auto; /* Prevent videos from shrinking */
+    width: 300px; /* Set a fixed width for each video */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.news-item {
+    margin-bottom: 20px; /* Space between news items */
+}
+
+.discord-button {
+    background-color: #7289da; /* Discord color */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    font-size: 1.2em; /* Increase font size */
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Inline-block display */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.discord-button:hover {
+    background-color: #5a6fb2; /* Darker Discord color on hover */
+}
+
+.nationsglory-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    font-size: 1.2em; /* Increase font size */
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Inline-block display */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.nationsglory-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.profile-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    font-size: 1.2em; /* Increase font size */
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Inline-block display */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.profile-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.profile-button img {
+    width: 20px; /* Set a fixed width for the logo */
+    height: 20px; /* Set a fixed height for the logo */
+    margin-right: 10px; /* Space between the logo and text */
+}
+
+.team-section {
+    text-align: center; /* Center the text */
+    margin-bottom: 20px; /* Space between sections */
+    position: relative;
+}
+
+.team-member {
+    display: inline-block; /* Display members in a row */
+    margin: 10px; /* Space between members */
+    text-align: center; /* Center the text within each member */
+    position: relative;
+    z-index: 1; /* Ensure the team member is above the background */
+}
+
+.team-member img {
+    width: 150px; /* Set a fixed width for the images */
+    height: 150px; /* Set a fixed height for the images */
+    border-radius: 0%; /* Make the images circular */
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+    background-image: none; /* Remove background image in dark mode */
+}
+
+body.dark-mode.tiktok-background {
+    background-image: url('../boutique/fond/tiktok.gif'); /* Dark mode TikTok background */
+}
+
+body.dark-mode.discord-background {
+    background-image: url('../boutique/fond/discordb.png'); /* Dark mode Discord background */
+}
+
+body.dark-mode.creavideo-background {
+    background-image: url('../boutique/fond/creavideo.png'); /* Dark mode Création Vidéo background */
+}
+
+body.dark-mode.creaphoto-background {
+    background-image: url('../boutique/fond/creaphoto.png'); /* Dark mode Création Image background */
+}
+
+body.dark-mode.youtube-background {
+    background-image: url('../boutique/fond/edora.gif'); /* Dark mode YouTube background */
+}
+
+header.dark-mode, footer.dark-mode {
+    background-color: #1e1e1e;
+}
+
+nav ul li a.dark-mode {
+    color: #ffffff;
+}
+
+.team-member.dark-mode, .article-item.dark-mode, .boutique-item.dark-mode, .video-item.dark-mode, .offer-item.dark-mode {
+    background-color: rgba(30, 30, 30, 0.8);
+}
+
+.team-member p.dark-mode, .article-item h2.dark-mode, .boutique-item h3.dark-mode, .video-item h3.dark-mode, .offer-item h3.dark-mode {
+    color: #ffffff;
+}
+
+.article-item p.dark-mode, .boutique-item p.dark-mode, .video-item p.dark-mode, .offer-item p.dark-mode {
+    color: #bbbbbb;
+}
+
+.modal-content.dark-mode {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.modal-right.dark-mode {
+    background-color: #1e1e1e;
+}
+
+.discord-button.dark-mode, .nationsglory-button.dark-mode, .profile-button.dark-mode {
+    background-color: #5865f2; /* Darker Discord color */
+    color: #ffffff; /* White text */
+}
+
+/* Ensure text inside video items is white in dark mode */
+.video-item.dark-mode h3, .video-item.dark-mode p {
+    color: #ffffff;
+}
+
+/* Ensure text inside team members, articles, and offers is white in dark mode */
+.team-member.dark-mode p, .article-item.dark-mode h2, .boutique-item.dark-mode h3, .offer-item.dark-mode h3 {
+    color: #ffffff;
+}
+
+.article-item.dark-mode p, .boutique-item.dark-mode p, .offer-item.dark-mode p {
+    color: #bbbbbb;
+}
+
+/* Ajoutez d'autres styles spécifiques au mode sombre ici */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 20px; /* Adjust margin as needed */
+}
+
+#theme-icon {
+    width: 30px; /* Adjust the size as needed */
+    height: 30px; /* Adjust the size as needed */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    #theme-toggle {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .team-member, .article-item, .boutique-item, .video-item, .offer-item {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .gallery-item {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    form {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    #logo {
+        height: 40px;
+    }
+
+    #theme-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    h1, h2 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+/* Formulaire de recrutement */
+form#recruitment-form {
+    max-width: 600px; /* Limite la largeur du formulaire */
+    margin: 0 auto; /* Centre le formulaire */
+    padding: 20px;
+    background-color: #f9f9f9; /* Couleur de fond douce */
+    border-radius: 10px; /* Bordures arrondies */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    font-family: Arial, sans-serif;
+}
+
+form#recruitment-form label {
+    display: block; /* Une question par ligne */
+    font-weight: bold;
+    margin-bottom: 5px; /* Espacement entre le label et l'input */
+    color: #333; /* Couleur du texte */
+}
+
+form#recruitment-form input,
+form#recruitment-form select,
+form#recruitment-form textarea {
+    width: 100%; /* Prend toute la largeur disponible */
+    padding: 10px;
+    margin-bottom: 15px; /* Espacement entre les champs */
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 5px; /* Bordures arrondies */
+    font-size: 14px;
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+}
+
+form#recruitment-form textarea {
+    resize: vertical; /* Permet de redimensionner verticalement */
+    min-height: 80px; /* Hauteur minimale */
+}
+
+form#recruitment-form button {
+    display: block;
+    width: 100%; /* Bouton large */
+    padding: 10px;
+    background-color: #4CAF50; /* Vert */
+    color: white; /* Texte blanc */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition douce */
+}
+
+form#recruitment-form button:hover {
+    background-color: #45a049; /* Vert plus foncé au survol */
+}
+
+form#recruitment-form h1 {
+    text-align: center; /* Centre le titre */
+    color: #024eb5; /* Couleur personnalisée */
+    margin-bottom: 20px;
+}
+
+form#recruitment-form p {
+    text-align: center; /* Centre les paragraphes */
+    color: #666; /* Couleur grise */
+    margin-bottom: 20px;
+}
+
+
+
+
+}
+
+orm#recruitment-form {
+    max-width: 600px; /* Limite la largeur du formulaire */
+    margin: 0 auto; /* Centre le formulaire */
+    padding: 20px;
+    background-color: #f9f9f9; /* Couleur de fond douce */
+    border-radius: 10px; /* Bordures arrondies */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    font-family: Arial, sans-serif;
+}
+
+form#recruitment-form label {
+    display: block; /* Une question par ligne */
+    font-weight: bold;
+    margin-bottom: 5px; /* Espacement entre le label et l'input */
+    color: #333; /* Couleur du texte */
+}
+
+form#recruitment-form input,
+form#recruitment-form select,
+form#recruitment-form textarea {
+    width: 100%; /* Prend toute la largeur disponible */
+    padding: 10px;
+    margin-bottom: 15px; /* Espacement entre les champs */
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 5px; /* Bordures arrondies */
+    font-size: 14px;
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+}
+
+form#recruitment-form textarea {
+    resize: vertical; /* Permet de redimensionner verticalement */
+    min-height: 80px; /* Hauteur minimale */
+}
+
+form#recruitment-form button {
+    display: block;
+    width: 100%; /* Bouton large */
+    padding: 10px;
+    background-color: #4CAF50; /* Vert */
+    color: white; /* Texte blanc */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition douce */
+}
+
+form#recruitment-form button:hover {
+    background-color: #45a049; /* Vert plus foncé au survol */
+}
+
+form#recruitment-form h1 {
+    text-align: center; /* Centre le titre */
+    color: #024eb5; /* Couleur personnalisée */
+    margin-bottom: 20px;
+}
+
+form#recruitment-form p {
+    text-align: center; /* Centre les paragraphes */
+    color: #666; /* Couleur grise */
+    margin-bottom: 20px;
+}
+
+
+.containerhistrp {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: url('../images/parchment-texture.jpg') no-repeat center center;
+  background-size: cover;
+  border: 6px solid #d2b48c;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #3b2a1a;
+  backdrop-filter: brightness(1.05);
+}
+
+.containerhistrp h1 {
+  text-align: center;
+  color: #000000;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px #f5f0e6;
+}
+
+.containerhistrp ul {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.containerhitrp li {
+  margin-bottom: 0.6rem;
+}
+.date {
+  font-style: italic;
+  font-size: 0.75rem; /* Très petit */
+  color: #666;         /* Gris discret */
+  margin-top: -0.5rem; /* Remonte un peu si besoin */
+  margin-bottom: 1rem;
+}

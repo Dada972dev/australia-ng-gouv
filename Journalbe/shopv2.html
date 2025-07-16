@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+  <title>Création de Devis / Facture</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+
+
+body {
+      background-image: url('images/background.jpg'); 
+
+
+}
+
+
+
+
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 12px;
+      padding: 25px 40px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    /* Page container */
+    .page {
+      display: none;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .active {
+      display: block;
+    }
+
+    /* Buttons */
+    button {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px 10px 0 0;
+      box-shadow: 0 4px 10px rgba(0,123,255,0.4);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    /* Inputs, textarea, select */
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 8px 0 20px 0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #007BFF;
+      box-shadow: 0 0 8px rgba(0,123,255,0.3);
+    }
+
+    /* Labels */
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    /* List styles (panier) */
+    #cartList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #cartList li {
+      background: #f9fbfd;
+      margin: 12px 0;
+      padding: 18px 20px;
+      border-radius: 12px;
+      border: 1px solid #e1e8f0;
+      box-shadow: 0 3px 7px rgba(0,0,0,0.05);
+      transition: box-shadow 0.3s ease;
+      line-height: 1.4;
+    }
+
+    #cartList li:hover {
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    }
+
+    #cartList li strong {
+      font-size: 1.1rem;
+      color: #007BFF;
+    }
+
+    #cartList li br {
+      margin-bottom: 5px;
+    }
+
+    /* Total price */
+    #totalPrice {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #222;
+      display: inline-block;
+      margin-left: 10px;
+    }
+
+    /* Modal Title */
+    #modalTitle {
+      margin-bottom: 20px;
+      color: #007BFF;
+      font-weight: 700;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #007BFF;
+      padding-bottom: 8px;
+    }
+
+    /* Checkbox labels */
+    #optionsForm label {
+      font-weight: normal;
+      cursor: pointer;
+      display: block;
+      margin-bottom: 10px;
+      padding-left: 30px;
+      position: relative;
+      user-select: none;
+    }
+
+    #optionsForm input[type="checkbox"] {
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: #007BFF;
+    }
+
+    /* Radio buttons for final choice */
+    #finalChoice label {
+      font-weight: 600;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+    #finalChoice input[type="radio"] {
+      margin-right: 8px;
+      cursor: pointer;
+      accent-color: #007BFF;
+    }
+
+    /* Message de confirmation */
+    #confirmationMessage {
+      padding: 20px;
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      display: none;
+      text-align: center;
+    }
+
+    /* Devis page */
+    #quotePage h2 {
+      color: #007BFF;
+      border-bottom: 3px solid #007BFF;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+    }
+    #quotePage table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    #quotePage th, #quotePage td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    #quotePage th {
+      background: #007BFF;
+      color: white;
+    }
+    #quotePage .total-row td {
+      font-weight: 700;
+      font-size: 1.2rem;
+      background: #f0f8ff;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      section {
+        padding: 20px 20px;
+        margin: 20px 15px;
+      }
+
+      button {
+        width: 100%;
+        margin: 10px 0 0 0;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/logo.png" alt="Logo de TheTimes" id="logo">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="about.html">Notre équipe</a></li>
+
+                <li><a href="videos.html">Les Vidéos</a></li>
+                <li><a href="discord.html">Discord</a></li>
+                <li><a href="shopv2.html">Boutique</a></li>
+                 
+                      
+                </button>
+            </ul>
+        </nav>
+    </header>
+<!-- Page Sélection -->
+<section id="page-selection" class="page active">
+  <h2>Sélectionnez un article</h2>
+  <button onclick="selectArticle('video')">🎥 Vidéo</button>
+  <button onclick="selectArticle('short')">🎞️ Short</button>
+  <button onclick="selectArticle('image')">🖼️ Image</button>
+</section>
+
+<!-- Page Options -->
+<section id="page-options" class="page">
+  <h2 id="modalTitle"></h2>
+  <label>Description du projet :<br>
+    <textarea id="projectDesc" rows="4"></textarea>
+  </label>
+  <form id="optionsForm"></form>
+  <label>Durée / Pack :
+    <select id="durationSelect"></select>
+  </label>
+  <button onclick="addToCart()">Ajouter au panier</button>
+  <button onclick="goTo('page-selection')">Retour</button>
+</section>
+
+<!-- Page Panier -->
+<section id="page-panier" class="page">
+  <h2>🛒 Panier</h2>
+  <ul id="cartList"></ul>
+  <p><strong>Total :</strong> <span id="totalPrice">0</span> $</p>
+  <button onclick="goTo('page-final')">Finaliser</button>
+  <button onclick="goTo('page-selection')">Ajouter un autre article</button>
+</section>
+
+<!-- Page Finalisation -->
+<section id="page-final" class="page">
+  <h2>Finalisation</h2>
+  <form id="finalForm" onsubmit="return false;">
+    <input placeholder="Pseudo InGame" id="pseudo" required />
+    <input placeholder="Serveur de jeu" id="server" required />
+    <input placeholder="Pays" id="country" required />
+    <input placeholder="Pseudo Discord" id="discord" required />
+    <div id="finalChoice">
+      <label><input type="radio" name="typeDoc" value="facture" checked /> Passer commande (Facture)</label>
+      <label><input type="radio" name="typeDoc" value="devis" /> Générer un devis</label>
+    </div>
+    <button type="button" onclick="handleFinal()">Valider</button>
+  </form>
+  <button onclick="goTo('page-panier')">Retour au panier</button>
+  <div id="confirmationMessage"></div>
+</section>
+
+<!-- Page Devis (affichage web) -->
+<section id="quotePage" class="page" style="display:none;">
+  <h2>DEVIS</h2>
+  <div id="quoteContent"></div>
+  <button onclick="goTo('page-selection')">Nouvelle demande</button>
+  <button onclick="goTo('page-panier')">Retour au panier</button>
+</section>
+
+    <footer>
+        <p>&copy; 2025 Dada972. Tous droits réservés.</p>
+    </footer>
+    <script src="../js/video.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="../js/shop.js"></script>
+    
+
+</body>
+</html>

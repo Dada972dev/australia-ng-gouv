@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Notre équipe - TheTimes</title>
+</head>
+<style>
+body {
+      background-image: url('images/background.jpg'); 
+
+
+}
+</style>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Logo de TheTimes" id="logo">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="about.html">Notre équipe</a></li>
+                
+                <li><a href="videos.html">Les Vidéos</a></li>
+                <li><a href="discord.html">Discord</a></li>
+                <li><a href="shopv2.html">Boutique</a></li>
+                 
+                      
+                </button>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Notre équipe</h1>
+        <section class="team-section">
+            <h2>Directeurs</h2>
+            <div class="team-member" onclick="openModal('Dada972', 'Bonjour jeune amis du monde réel!')">
+                <img src="https://skins.nationsglory.fr/face/Dada972/3d/15" alt="Dada972">
+                <p>Dada972</p>
+            </div>
+            <div class="team-member" onclick="openModal('CookieDou', 'Im Gay')">
+                <img src="https://skins.nationsglory.fr/face/CookieDou/3d/15" alt="Dada972">
+                <p>CookieDou</p>
+        </div>
+
+             </section>
+        <section class="team-section">
+            <h2>Journalistes</h2>
+            <div class="team-member" onclick="openModal('Alexis101010', '   Just Alexis')">
+                <img src="https://skins.nationsglory.fr/face/Alexis101010/3d/15" alt="Miloupro">
+                <p>Alexis101010</p>
+            </div>
+                        <div class="team-member" onclick="openModal('Manalilou_', 'Je suis un casseur de couille!')">
+                <img src="https://skins.nationsglory.fr/face/Manalilou_/3d/15" alt="Miloupro">
+                <p>Manalilou_</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Dada972. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-left">
+                <img id="modal-image" src="" alt="Member Image">
+            </div>
+            <div class="modal-right">
+                <h2 id="modal-title">Aucune description sélectionnée</h2>
+                <p id="modal-description">(Tkt) Pour mettelmlebg Aucune descritpion selectionnée.</p>
+                <button id="profile-button" class="profile-button">
+                    <img src="images/nationsglory.png" alt="NationsGlory Logo">
+                    Accéder au profil
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(name, description) {
+            document.getElementById('modal-image').src = `https://skins.nationsglory.fr/face/${name}/3d/15`;
+            document.getElementById('modal-title').innerText = name;
+            document.getElementById('modal-description').innerText = description;
+            document.getElementById('profile-button').onclick = function() {
+                window.open(`https://nationsglory.fr/profile/${name}`, '_blank');
+            };
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('modal')) {
+                document.getElementById('modal').style.display = 'none';
+            }
+        }
+    </script>
+        <script src="theme.js"></script>
+</body>
+</html>

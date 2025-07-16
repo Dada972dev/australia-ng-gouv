@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Vidéos - TheTimes</title>
+</head>
+<style>
+body {
+      background-image: url('images/background.jpg'); 
+
+
+}
+</style>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Logo de TheTimes" id="logo">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="about.html">Notre équipe</a></li>
+                <li><a href="videos.html">Les Vidéos</a></li>
+                <li><a href="discord.html">Discord</a></li>
+                <li><a href="shopv2.html">Boutique</a></li>
+                 
+                      
+                </button>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Nos vidéos</h1>
+        <section id="video-list">
+            <!-- Videos will be dynamically inserted here -->
+        </section>
+        <!-- Chat icon -->
+
+
+<!-- Chatbox -->
+<div class="chat-icon" onclick="toggleChat()"></div>
+
+<div class="chatbox" id="chatbox">
+  <div class="chat-header">💬 RoyalSupport</div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Votre message...">
+    <button onclick="sendMessage()">Envoyer</button>
+  </div>
+</div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Dada972. Tous droits réservés.</p>
+    </footer>
+    <script src="js/video.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>
